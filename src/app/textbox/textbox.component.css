@@ -1,0 +1,16 @@
+.paddingleft{
+ padding-left: 8px;
+}
+.paddingleft20{
+  padding-left: 10rem;
+ }
+
+  .b{
+   border: 1px solid gray;
+  
+  }
+  .border-effect {
+    border-color: red;
+    border-width: 1px;
+    /* Add more styles as desired */
+  }

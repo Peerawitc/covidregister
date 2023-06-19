@@ -1,0 +1,31 @@
+<div class="position-absolute top-50 start-50 translate-middle card p-5 b ">
+    <table class="table-hover ">
+
+        <tbody>
+            <tr>
+                <th scope="row">ชื่อ-นามสกุล</th>
+                <td>{{ convertName}}</td>
+            </tr>
+            <tr>
+                <th scope="row">เลขบัตรประชาชน</th>
+                <td>{{ data.id }}</td>
+            </tr>
+            <tr>
+                <th scope="row">วันเกิด</th>
+                <td colspan="2">{{ dateThai }}</td>
+            </tr>
+            <tr>
+                <th scope="row">เพศ</th>
+                <td colspan="2">{{ data.gender }}</td>
+            </tr>
+           
+        </tbody>
+    </table>
+    <span colspan="2" *ngIf="checkState" class="text-danger mt-3">{{ displayoutput }}</span>
+    <span colspan="2" *ngIf="!checkState" class="text-success mt-3">{{ displayoutput }}</span>
+    <div class="row">
+        <button type="button" class="btn btn-secondary mt-3 mx-2" [routerLink]="['/']">
+            ย้อนกลับ
+        </button>
+    </div>
+</div>

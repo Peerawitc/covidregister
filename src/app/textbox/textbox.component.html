@@ -1,0 +1,90 @@
+<div class="position-absolute top-50 start-50 translate-middle card p-5 b">
+    <label class="mx-2">บัตรประชาชน</label>
+    <div class="row">
+        <div class="col-12 mb-3 mx-2">
+            <p-inputMask mask="9-9999-99999-99-9" [formControl]="id" class="w-100 " [style]="{'width':'100%'}"
+                placeholder="x-xxxx-xxxxx-xx-x">
+            </p-inputMask>
+        </div>
+    </div>
+    <div class="row">
+        <small class="mx-2 mb-2 text-danger" *ngIf="id.invalid && id.touched">
+            *กรุณาระบุ เลขบัตรประชาชนให้ถูกต้อง
+        </small>
+    </div>
+    <label class="mx-2">ชื่อ-สกุล</label>
+    <div class="row">
+        <div class="  col-6">
+            <input type="text" [formControl]="firstName" class="form-control m-2 rounded b"  placeholder="สมใจ"
+                pattern="{{ pattern_lg }}" />
+        </div>
+        <div class=" col-6">
+            <input type="text" [formControl]="lastName" class="form-control m-2 rounded b" placeholder="มีสุข"
+                pattern="{{ pattern_lg }}" />
+        </div>
+    </div>
+    <div class="row">
+        <small class="mx-2 mb-2 text-danger"
+            *ngIf="firstName.invalid && firstName.touched || lastName.invalid && lastName.touched">
+            *กรุณาระบุ ชื่อหรือนามสกุลให้ถูกต้อง
+        </small>
+    </div>
+    <div class="row">
+        <div class="col-6 ">
+            <label class="mx-2">วันเดือนปีเกิด</label>
+        </div>
+        <div class="col-6">
+            <label class="mx-2">เพศ</label>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-6">
+            <input type="date" [formControl]="date" class="rounded b m-2 form-control w-100" min="1900-01-01"
+                max="{{ today }}" />
+        </div>
+        <div class="col-6">
+            <select class="form-control mt-2 b mx-2" [formControl]="gender">
+                <option value="" disabled selected>เลือกเพศ</option>
+                <option value="ชาย">ชาย</option>
+                <option value="หญิง">หญิง</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button type="button" class="btn btn-success  mx-2 w-100 " data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                [disabled]="firstName.invalid || lastName.invalid || id.invalid || gender.invalid"
+                (click)="showOutput()">
+                ยืนยัน
+            </button>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-danger mx-2 w-100" (click)="reset()">
+                ล้างค่า
+            </button>
+        </div>
+    </div>
+</div>
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">แจ้งเตือนจากระบบ</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          หากข้อมูลของท่านถูกต้องโปรดกดปุ่มยืนยัน
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="sendOutput()">ยืนยัน</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- {{ firstName.errors | json }}
+{{ id.errors | json }}
+{{gender.errors| json}} -->

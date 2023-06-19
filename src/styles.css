@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+body {
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: fixed; 
+background-size: cover;   
+background-image: url("https://badgut.org/wp-content/uploads/COVID-Vaccine-large.png")
+}
